@@ -34,15 +34,6 @@
     <Message Text="-------- Building 0Harmony for .NET 8 --------&#x0a;" Importance="high" />
     
     <Exec Command="git clone https://github.com/pardeike/Harmony $(HarmonyRoot)" Condition="!Exists($(HarmonyRoot))" />
-
-    <XmlPoke
-        XmlInputPath="/run/media/cyro/E0EAC8C6EAC899E4/Users/Cyro/Documents/Coding Stuff/Resonite mods/Harmony/ILRepack.targets"
-        Query="/msb:Project/msb:Target/msb:ILRepack/@Internalize" 
-        Namespaces="&lt;Namespace Prefix='msb' Uri='http://schemas.microsoft.com/developer/msbuild/2003' /&gt;"
-        Value="false">
-        <!--Whoever made XML must be punished for these (&lt; = < &gt; = >) stupid escaped HTML tags-->
-    </XmlPoke>
-
     <Exec Command="dotnet publish $(HarmonyPath)/Harmony.csproj -c ReleaseFat --framework net8.0" />
     <Copy SourceFiles="$(HarmonyPath)/bin/ReleaseFat/net8.0/0Harmony.dll" DestinationFolder="./extralibs" />
     
