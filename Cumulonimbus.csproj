@@ -43,7 +43,7 @@
 
     <Message Text="-------- Building Nimbus --------&#x0a;" Importance="high" />
     
-    <Exec Command="git clone https://github.com/RileyGuy/Nimbus $(NimbusPath)" Condition="!Exists($(NimbusPath))" />
+    <Exec Command="git clone https://github.com/Nutcake/Nimbus $(NimbusPath)" Condition="!Exists($(NimbusPath))" />
     <Exec Command="dotnet publish $(NimbusPath)/Nimbus.csproj -c Release" />
     <Copy SourceFiles="$(NimbusPath)/bin/Release/net472/publish/Nimbus.dll" DestinationFolder="./extralibs" />
   
